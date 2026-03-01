@@ -1,0 +1,81 @@
+/* ===== TENNIS PAGE ===== */
+.page-bracelets {
+    background: #fff;
+}
+
+/* Заголовок страницы */
+.page-bracelets .page-title {
+    font-size: 34px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* ===== SUB CATEGORIES (TENNIS) ===== */
+.page-bracelets .sub-categories {
+    margin-bottom: 50px;
+}
+
+.page-bracelets .sub-cat-img img {
+    transition: transform 0.3s ease;
+}
+
+.page-bracelets .sub-cat-item:hover img {
+    transform: scale(1.05);
+}
+
+/* ===== TENNIS CAROUSEL ===== */
+.page-bracelets .carousel {
+    margin: 60px auto;
+}
+
+.page-bracelets .carousel-line {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.page-bracelets .carousel-line img {
+    width: 260px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 14px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.page-bracelets .carousel-line img:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* Кнопки карусели */
+.page-bracelets .carousel-control-prev,
+.page-bracelets .carousel-control-next {
+    filter: invert(1);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+
+    .page-bracelets .page-title {
+        font-size: 26px;
+    }
+
+    .page-bracelets .carousel-line {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .page-bracelets .carousel-line img {
+        width: 100%;
+        max-width: 320px;
+        height: 260px;
+    }
+}
+
+/* ===== SMALL MOBILE ===== */
+@media (max-width: 480px) {
+
+    .page-bracelets .carousel-line img {
+        height: 220px;
+    }
+}

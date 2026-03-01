@@ -1,0 +1,625 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Affa Jewellery -</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+		/>
+	</head>
+	<body>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+			crossorigin="anonymous"
+		></script>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="{% static 'css/rings.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/main.css' %}" />
+
+		<!-- ################################################################################################################################################################################################################################ -->
+
+		<div class="top-ticker">
+			<button class="ticker-btn"><i class="fas fa-chevron-left"></i></button>
+			<span>БЕСПЛАТНАЯ ДОСТАВКА ПО СТРАНЕ ЗА 2 ДНЯ</span>
+			<button class="ticker-btn"><i class="fas fa-chevron-right"></i></button>
+		</div>
+
+		<header class="shop-header">
+			<div class="header-inner">
+				<div class="logo-area">
+					<a href="index.html" class="affa-logo">Affa Jewellery</a>
+				</div>
+
+				<input type="checkbox" id="burger-toggle" class="burger-checkbox" />
+
+				<label for="burger-toggle" class="burger-label">
+					<span></span>
+					<span></span>
+					<span></span>
+				</label>
+
+				<nav class="shop-nav">
+					<a href="earrings.html">Серьги</a>
+					<a href="bracelets.html">Браслеты</a>
+					<a href="rings.html">Кольца</a>
+					<a href="necklace.html">Ожерелья</a>
+					<a href="kontact.html">Контакты</a>
+					<a href="https://www.instagram.com/">Инстаграм</a>
+				</nav>
+
+				<div class="header-icons">
+					<i style="color: black" class="bi bi-whatsapp"></i>
+					<i class="bi bi-whatsapp"></i>
+					<i class="bi bi-whatsapp"></i>
+				</div>
+			</div>
+		</header>
+
+		<header class="hero-section">
+			<video autoplay muted loop playsinline class="hero-video">
+				<source src="{% static 'assets/header.mp4' %}" type="video/mp4" />
+			</video>
+
+			<div class="hero-content">
+				<p class="hero-kicker">каждый день, везде</p>
+				<h1>Affa Jewellery</h1>
+				<p>Ювелирные украшения</p>
+				<a href="#new" class="btn">Смотреть новинки</a>
+			</div>
+		</header>
+
+
+<!-- БАНЕР -->
+<section class="banner-carousel">
+    <div class="carousel-wrapper">
+        <button class="arrow-btn prev-btn" onclick="slideLeft()">&#10094;</button>
+        <div class="carousel-track" id="slider">
+            {% for banner in banners %}
+            <div class="slide">
+                <img src="{{ banner.image.url }}" alt="{{ banner.title }}">
+                <div class="slide-content">
+                    <h2>{{ banner.title }}</h2>
+                    <p>{{ banner.subtitle }}</p>
+                    <a href="{{ banner.link }}" class="btn-slide">{{ banner.button_text }}</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <button class="arrow-btn next-btn" onclick="slideRight()">&#10095;</button>
+    </div>
+</section>
+
+<!-- <section class="banner-carousel">
+	<div class="carousel-wrapper">
+		<button class="arrow-btn prev-btn" onclick="slideLeft()">
+			&#10094;
+		</button>
+
+		<div class="carousel-track" id="slider">
+			<div class="slide">
+				<img
+					src="https://basket-19.wbbasket.ru/vol3107/part310753/310753366/images/c516x688/1.webp"
+					alt="Новая коллекция"
+				/>
+				<div class="slide-content">
+					<h2>Бриллиантовая осень</h2>
+					<p>Скидки до 30% на комплекты</p>
+					<a href="#new" class="btn-slide">В каталог</a>
+				</div>
+			</div>
+
+			<div class="slide">
+				<img
+					src="https://image.kazanexpress.ru/c6uro2kglr11601q7dr0/t_product_high.jpg"
+					alt="Подарки"
+				/>
+				<div class="slide-content">
+					<h2>Идеальный подарок</h2>
+					<p>Подарочные сертификаты от 5000 ₽</p>
+					<a
+						href="https://wa.me/79990000000?text=Здравствуйте!%20Я%20пишу%20из%20онлайн-магазина%20Affa%20Jewellery.%20Хочу%20купить%20подарочный%20сертификат."
+						class="btn-slide"
+						>Купить в WhatsApp</a
+					>
+				</div>
+			</div>
+		</div>
+
+		<button class="arrow-btn next-btn" onclick="slideRight()">
+			&#10095;
+		</button>
+	</div>
+</section> -->
+
+<!-- БАНЕР КОНЕЦ -->
+
+
+<!-- КАТЕГОРИИ -->
+
+
+
+<section class="categories-section" id="new">
+    <div class="categories-grid">
+        {% for category in categories %}
+        <a href="{{ category.url_name }}" class="category-item">
+            <img src="{{ category.image.url }}" alt="{{ category.name }}">
+            <span class="category-name">{{ category.name }}</span>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+
+
+<!-- <section class="categories-section" id="new">
+	<h2 class="section-title"></h2>
+
+	<div class="categories-grid">
+		<a href="earrings.html" class="category-item">
+			<img
+				src="https://parure.spb.ru/image/cache/import_files/cf/cf85fd6395bc11eebf3300155d007e00_80e8fddea01f11eebf3300155d007e00-564x564.jpg"
+				alt="Серьги"
+			/>
+			<span class="category-name">серьги</span>
+		</a>
+
+		<a href="bracelets.html" class="category-item">
+			<img
+				src="https://cs5.livemaster.ru/storage/a2/ce/b4b4467fa9442d659da137bae8yd--ukrasheniya-braslety-iz-krasnogo-i-limonnogo-zolota-585-proby.jpg"
+				alt="Браслеты"
+			/>
+			<span class="category-name">браслеты</span>
+		</a>
+
+		<a href="rings.html" class="category-item">
+			<img
+				src="https://jstudio.by/wp-content/uploads/2023/03/kolos.jpg"
+				alt="Кольца"
+			/>
+			<span class="category-name">кольца</span>
+		</a>
+
+		<a href="necklace.html" class="category-item">
+			<img
+				src="https://ae04.alicdn.com/kf/Sf7c13791d81f477195cf6c7ee711f253G.jpg_480x480.jpg"
+				alt="Ожерелья"
+			/>
+			<span class="category-name">ожерелья</span>
+		</a>
+	</div>
+</section> -->
+
+<!-- КАТЕГОРИИ КОНЕЦ  -->
+
+
+
+
+
+<!-- СЕТКА ОСОЮЕННОСТЕЙ  -->
+
+<section class="feature-grid-section">
+    <div class="feature-container">
+        {% for item in features %}
+            {% if item.is_large %}
+            <div class="feature-large">
+                <div class="zoom-wrapper">
+                    <img src="{{ item.image.url }}" alt="{{ item.name }}">
+                </div>
+                <div class="feature-text">
+                    <h3>{{ item.name }}</h3>
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+
+        <div class="feature-small-col">
+            {% for item in features %}
+                {% if not item.is_large %}
+                <div class="feature-product">
+                    <img src="{{ item.image.url }}" alt="{{ item.name }}">
+                    {% if item.price %}
+                        <h4>{{ item.name }}</h4>
+                        <p>{{ item.price }} ₽</p>
+                    {% endif %}
+                    <a href="#" class="shop-link">В каталог</a>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+<!-- <section class="feature-grid-section">
+	<div class="feature-container">
+		<div class="feature-large">
+			<div class="zoom-wrapper">
+				<img
+					src="https://s.alicdn.com/@sc04/kf/H3592a3ad06e7493995aefe15e26b28481/Pink-Vvs-Moissanite-Solitaire-Engagement-Rings-Princess-Radiant-Emerald-Heart-Oval-Pear-Cut-925-Silver-Diamond-Wedding-Ring.jpg_300x300.jpg"
+					alt="Модель с украшениями"
+				/>
+			</div>
+			<div class="feature-text">
+				<h3>смелый дизайн. блестящие драгоценные камни.</h3>
+			</div>
+		</div>
+
+		<div class="feature-small-col">
+			<div class="feature-product">
+				<img
+					src="https://cdn.shopify.com/s/files/1/0774/7554/5370/products/wh14919_be7266ee-a069-4b5f-9897-06306cb918e1_480x480.jpg?v=1697180166"
+					alt="Кольцо"
+				/>
+				<a href="kotolog.html" class="shop-link">В каталог</a>
+			</div>
+
+			<div class="feature-product">
+				<img
+					src="https://images.gmjewelry.store/goods_photo/engagement/1125/1_s.webp"
+					alt="Кольцо"
+				/>
+				<a href="#new" class="shop-link">В каталог</a>
+			</div>
+		</div>
+	</div>
+</section> -->
+
+<!-- СЕТКА ОСОБЕННОСТЕЙ КОНЕЦ -->
+
+
+
+<section class="split-section">
+	<div class="split-image">
+		<img
+			src="https://i.pinimg.com/736x/a9/c0/0f/a9c00f9367072a2b1fbf1ef4aebd656a.jpg"
+			alt="Модель с украшениями"
+		/>
+	</div>
+
+	<div class="split-content">
+		<span class="subtitle">Представляем</span>
+		<h2>Послесвечение</h2>
+		<p>
+			Там, где смелое золото встречается с женственной уверенностью. <br />
+			Создано, чтобы вдохновлять вас в любой момент — от вечернего блеска до
+			повседневного сияния.
+		</p>
+		<a href="#new" class="btn-black">Перейти в каталог</a>
+	</div>
+</section>
+
+<section class="video-parallax-section">
+	<div class="video-sticky-wrapper">
+		<video autoplay muted loop playsinline class="bg-video">
+			<source src="{% static 'assets/ne_header.mp4' %}" type="video/mp4" />
+		</video>
+
+		<div class="video-overlay">
+			<div class="video-content">
+				<h2>Наша философия</h2>
+				<p>Мы создаем украшения, которые рассказывают вашу историю</p>
+				<p>
+					Каждое изделие — это сочетание традиций ювелирного мастерства и
+					современного дизайна
+				</p>
+				<a href="#new" class="btn-black">Перейти в каталог</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!-- ОТЗЫВЫ -->
+<section class="testimonials">
+    <div class="testimonials-wrapper" id="scrollContainer">
+        {% for t in testimonials %}
+        <div class="testimonial">
+            <div class="stars">
+                {% if t.stars == 5 %}★★★★★{% elif t.stars == 4 %}★★★★{% else %}★★★{% endif %}
+            </div>
+            <p>"{{ t.text }}"</p>
+            <span>— {{ t.name }}</span>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- <section class="testimonials">
+	<div class="testimonials-wrapper" id="scrollContainer">
+		<div class="testimonial">
+			<div class="stars">★★★★★</div>
+			<p>
+				"Потрясающее качество! Кольцо в жизни выглядит еще лучше, чем на
+				фото."
+			</p>
+			<span>— Анна С.</span>
+		</div>
+
+		<div class="testimonial">
+			<div class="stars">★★★★★</div>
+			<p>
+				"Лучший сервис. Помогли подобрать размер и быстро оформили заказ."
+			</p>
+			<span>— Марина В.</span>
+		</div>
+
+		<div class="testimonial">
+			<div class="stars">★★★★★</div>
+			<p>"Покупал подарок жене, она в восторге от колье."</p>
+			<span>— Дмитрий П.</span>
+		</div>
+
+		<div class="testimonial">
+			<div class="stars">★★★★★</div>
+			<p>"Украшение полностью оправдало ожидания."</p>
+			<span>— Екатерина Л.</span>
+		</div>
+
+		<div class="testimonial">
+			<div class="stars">★★★★★</div>
+			<p>"Очень быстрая доставка и отличная упаковка."</p>
+			<span>— Ольга Н.</span>
+		</div>
+	</div>
+</section> -->
+
+<!-- ОТЗЫВЫ КОНЕЦ -->
+
+
+
+<section class="about-section">
+	<div class="container about-container">
+		<div class="about-image">
+			<img
+				src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800"
+				alt="Affa Jewellery"
+			/>
+		</div>
+
+		<div class="about-content">
+			<span class="about-subtitle">Онлайн-магазин</span>
+			<h2>Affa Jewellery</h2>
+			<div class="about-divider"></div>
+			<p>
+				Мы — онлайн-бутик украшений с подбором под стиль и повод.
+				Консультации, подбор комплектов и заказ доступны в мессенджере.
+			</p>
+			<p>
+				Каталог обновляется владельцем: вы всегда видите актуальные модели,
+				цены и наличие.
+			</p>
+			<a
+				href="https://wa.me/79990000000?text=Здравствуйте!%20Я%20пишу%20из%20онлайн-магазина%20Affa%20Jewellery.%20Нужна%20консультация%20по%20подбору%20украшений."
+				class="btn-outline"
+				>Получить консультацию</a
+			>
+		</div>
+	</div>
+</section>
+
+
+<!-- БЛОГ -->
+
+
+<section class="blog-section container" id="blog">
+    <h2>Журнал</h2>
+    <div class="blog-grid">
+        {% for post in posts %}
+        <article class="blog-post">
+            <div class="blog-img">
+                <img src="{{ post.image.url }}" alt="{{ post.title }}">
+            </div>
+            <h4>{{ post.title }}</h4>
+            <p class="blog-meta">{{ post.meta }}</p>
+            <a href="#" class="blog-link">Читать</a>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+
+
+<!-- <section class="blog-section container" id="blog">
+	<h2>Блог</h2>
+	<div class="blog-grid">
+		<article class="blog-post">
+			<div class="blog-img">
+				<img
+					src="https://img.freepik.com/free-photo/jewelry-gold-ring-isolated-white-background_123827-27690.jpg?semt=ais_hybrid&w=740"
+					alt="Статья 1"
+				/>
+			</div>
+			<h4>Как ухаживать за золотом</h4>
+			<p class="blog-meta">Советы по уходу и хранению</p>
+			<a href="#" class="blog-link">Читать</a>
+		</article>
+		<article class="blog-post">
+			<div class="blog-img">
+				<img
+					src="https://i.pinimg.com/originals/90/3b/a0/903ba0ed363c2edc26a2e3e06849d5ae.jpg"
+					alt="Статья 2"
+				/>
+			</div>
+			<h4>Тренды сезона</h4>
+			<p class="blog-meta">Подборка актуальных форм и материалов</p>
+			<a href="#" class="blog-link">Читать</a>
+		</article>
+		<article class="blog-post">
+			<div class="blog-img">
+				<img
+					src="https://serebro-shop.ru/image/cache/catalog/pics/32/40/0ef8e93e86f185d11649c9a36ffd-1000x1000.jpg"
+					alt="Статья 3"
+				/>
+			</div>
+			<h4>История бриллиантов</h4>
+			<p class="blog-meta">Коротко о пути камня</p>
+			<a href="#" class="blog-link">Читать</a>
+		</article>
+	</div>
+</section> -->
+
+<!-- БЛОГ КОНЕЦ -->
+
+<section class="benefits-section">
+	<div class="container">
+		<div class="benefits-grid">
+			<div class="benefit-item">
+				<div class="benefit-icon">🚚</div>
+				<h3>Бесплатная доставка по стране</h3>
+				<p>
+					Доставка Ылдам экспресс в течение 2 дней для всех заказов внутри
+					страны, независимо от суммы покупки.
+				</p>
+			</div>
+
+			<div class="benefit-item">
+				<div class="benefit-icon">🎧</div>
+				<h3>Служба поддержки</h3>
+				<p>Мы готовы ответить на ваши вопросы с понедельника по пятницу.</p>
+			</div>
+
+			<div class="benefit-item">
+				<div class="benefit-icon">🛡️</div>
+				<h3>Безопасная оплата</h3>
+				<p>Ваша платежная информация обрабатывается в безопасном режиме.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<footer class="main-footer">
+	<div class="container">
+		<div class="footer-grid">
+			<div class="footer-col">
+				<h3>Обслуживание клиентов</h3>
+				<ul>
+					<li><a href="#">Служба поддержки</a></li>
+					<li><a href="#">Политика конфиденциальности</a></li>
+					<li><a href="#">Правила возврата</a></li>
+					<li><a href="#">Условия предоставления услуг</a></li>
+					<li><a href="#">Блог</a></li>
+					<li><a href="#">О нас</a></li>
+				</ul>
+			</div>
+
+			<div class="footer-col newsletter-col">
+				<h3>Рассылка</h3>
+				<p>
+					Присоединяйтесь к нашему списку, чтобы быть в курсе последних
+					новинок. Зарегистрируйтесь сегодня и получите скидку 10 % на
+					первый заказ. *
+				</p>
+				<form class="subscribe-form">
+					<button type="submit" class="btn-subscribe">Подписаться</button>
+				</form>
+			</div>
+		</div>
+
+		<div class="footer-bottom">
+			<p class="copyright">
+				© 2026 — Все права защищены Создано : Ойчиев Э. , Кадыров А.
+			</p>
+			<div class="payment-icons">
+				<span class="pay-card">AMEX</span>
+				<span class="pay-card">ApplePay</span>
+				<span class="pay-card">Visa</span>
+				<span class="pay-card">MasterCard</span>
+				<span class="pay-card">PayPal</span>
+			</div>
+		</div>
+	</div>
+</footer>
+
+
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const wrapper = document.querySelector('.testimonials-wrapper')
+		if (!wrapper) return
+
+		let isDragging = false
+		let startX
+		let scrollStart
+
+		const scrollFactor = 2 // ускорение скролла при перетаскивании
+
+		// ===== Drag Start =====
+		const startDrag = e => {
+			isDragging = true
+			startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX
+			scrollStart = wrapper.scrollLeft
+			wrapper.style.cursor = 'grabbing'
+		}
+
+		// ===== Drag Move =====
+		const dragMove = e => {
+			if (!isDragging) return
+			const x = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX
+			const dx = (x - startX) * scrollFactor
+			wrapper.scrollLeft = scrollStart - dx
+		}
+
+		// ===== Drag End =====
+		const endDrag = () => {
+			isDragging = false
+			wrapper.style.cursor = 'grab'
+		}
+
+		wrapper.addEventListener('mousedown', startDrag)
+		wrapper.addEventListener('touchstart', startDrag, { passive: true })
+		wrapper.addEventListener('mousemove', dragMove)
+		wrapper.addEventListener('touchmove', dragMove, { passive: true })
+		window.addEventListener('mouseup', endDrag)
+		window.addEventListener('touchend', endDrag)
+
+		// ===== Wheel Scroll Enhancement =====
+		wrapper.addEventListener('wheel', e => {
+			e.preventDefault()
+			wrapper.scrollBy({
+				left: e.deltaY * scrollFactor,
+				behavior: 'smooth',
+			})
+		})
+
+		// ===== Loop Only to Right =====
+		const slides = [...wrapper.children]
+		if (slides.length > 0) {
+			const slideWidth = slides[0].offsetWidth + 20 // gap между слайдами
+
+			wrapper.addEventListener('scroll', () => {
+				// Если доскроллили до конца — возвращаем в начало
+				if (
+					wrapper.scrollLeft >=
+					wrapper.scrollWidth - wrapper.clientWidth
+				) {
+					wrapper.scrollLeft = 0
+				}
+			})
+		}
+	})
+
+		const slider = document.getElementById('slider')
+
+	function slideRight() {
+		slider.scrollBy({ left: slider.offsetWidth, behavior: 'smooth' })
+	}
+
+	function slideLeft() {
+		slider.scrollBy({ left: -slider.offsetWidth, behavior: 'smooth' })
+	}
+</script>
+	</body>
+</html>

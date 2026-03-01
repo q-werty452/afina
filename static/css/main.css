@@ -1,0 +1,2166 @@
+/* --- Сброс стилей и Переменные --- */
+:root {
+	--primary-gold: #c5a059; /* Золотой цвет как на сайте */
+	--brand-dark: #171513;
+	--brand-dark-2: #0f0f0f;
+	--brand-ivory: #f6f1ea;
+	--brand-line: #e8e2d9;
+	--text-dark: #1a1a1a;
+	--text-gray: #666;
+	--bg-light: #f9f9f9;
+	--font-serif: 'Playfair Display', serif; /* Шрифт заголовков */
+	--font-sans: 'Lato', sans-serif; /* Шрифт текста */
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: var(--font-sans);
+	color: var(--text-dark);
+	line-height: 1.6;
+	background-color: #fff;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	transition: 0.3s;
+}
+img {
+	max-width: 100%;
+	display: block;
+	object-fit: cover;
+}
+
+/* Вспомогательные классы */
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+.text-center {
+	text-align: center;
+}
+
+/* Кнопки */
+.btn {
+	display: inline-block;
+	padding: 12px 30px;
+	background-color: var(--text-dark);
+	color: #fff;
+	font-family: var(--font-sans);
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 0.9rem;
+	border: 1px solid var(--text-dark);
+	cursor: pointer;
+	transition: all 0.4s ease;
+}
+
+.btn:hover {
+	background-color: transparent;
+	color: var(--text-dark);
+}
+
+.btn-outline {
+	background-color: transparent;
+	color: var(--text-dark);
+	margin-left: 10px;
+}
+
+.btn-outline:hover {
+	background-color: var(--text-dark);
+	color: #fff;
+}
+
+.top-ticker {
+	background-color: #fff;
+	border-bottom: 1px solid var(--brand-line);
+	text-align: center;
+	padding: 10px 0;
+	font-size: 0.7rem;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: #333;
+}
+
+/* --- Навигация --- */
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 50px;
+	position: sticky;
+	top: 0;
+	background: rgba(255, 255, 255, 0.95);
+	z-index: 1000;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+	background-color: rgba(10, 10, 10, 0.1);
+	backdrop-filter: blur(10px);
+	border-bottom: 1px solid rgba(255, 0, 60, 0.1);
+}
+
+.header--light {
+	position: sticky;
+	top: 0;
+	background: #fff;
+	border-bottom: 1px solid var(--brand-line);
+}
+
+.logo {
+	font-family: var(--font-serif);
+	font-size: 1.5rem;
+	font-weight: bold;
+	letter-spacing: 2px;
+	color: white;
+}
+
+.brand-logo {
+	font-family: var(--font-serif);
+	font-size: 1.3rem;
+	font-weight: 700;
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+	color: #111;
+	text-decoration: none;
+	margin-right: 30px;
+	white-space: nowrap;
+}
+
+.nav-links {
+	list-style: none;
+	display: flex;
+	gap: 30px;
+}
+
+.nav-links a:hover {
+	color: var(--primary-gold);
+}
+
+/* --- 1. Hero Section --- */
+.hero-section {
+	height: 120vh; /* Почти на весь экран */
+	background: url('C:\Users\aka22\Downloads\Черно-белое видео девушки в платье Rentaholic.mp4')
+		center/cover no-repeat;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	position: relative;
+}
+
+/* Затемнение фона фото */
+.hero-section::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+	position: relative;
+	z-index: 1;
+	color: #fff;
+}
+
+.hero-kicker {
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	font-size: 0.75rem;
+	margin-bottom: 14px;
+	color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-content h1 {
+	font-family: var(--font-serif);
+	font-size: 4rem;
+	margin-bottom: 20px;
+}
+
+/*  */
+.hero-section {
+	height: 120vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	position: relative;
+	overflow: hidden; /* Чтобы видео не вылезало за границы */
+	background-color: #000; /* Фон, пока видео грузится */
+}
+
+/* Стили для самого видео */
+.hero-video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /* Видео заполнит всё пространство без искажений */
+	z-index: 1; /* Видео на заднем плане */
+}
+
+/* Стили для контента */
+.hero-content {
+	position: relative;
+	z-index: 2; /* Текст выше видео */
+	color: #fff; /* Делаем текст белым, чтобы его было видно на видео */
+}
+
+/* --- Стили для Карусели --- */
+.banner-carousel {
+	width: 100%;
+	max-width: 1900px; /* Ширина как у основного сайта */
+	margin: 40px auto; /* Отступы сверху и снизу */
+	position: relative;
+	overflow: hidden;
+	border-radius: 20px; /* Скругленные углы всего баннера */
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-wrapper {
+	position: relative;
+}
+
+/* Лента слайдов */
+.carousel-track {
+	display: flex;
+	overflow-x: scroll; /* Разрешаем прокрутку */
+	scroll-snap-type: x mandatory; /* Чтобы слайд вставал ровно по центру */
+	scroll-behavior: smooth; /* Плавность */
+
+	/* Скрываем полосу прокрутки */
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* IE/Edge */
+}
+.carousel-track::-webkit-scrollbar {
+	display: none; /* Chrome/Safari */
+}
+
+/* Один слайд */
+.slide {
+	min-width: 100%; /* Слайд занимает 100% ширины контейнера */
+	height: 590px; /* Высота баннера */
+	position: relative;
+	scroll-snap-align: start;
+}
+
+.slide img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /* Картинка заполняет всё пространство */
+}
+
+/* Текст поверх слайда */
+.slide-content {
+	position: absolute;
+	top: 50%;
+	left: 60px;
+	transform: translateY(-50%);
+	background: rgba(255, 255, 255, 0.9); /* Полупрозрачная подложка */
+	padding: 30px;
+	border-radius: 0 20px 20px 20px;
+	max-width: 400px;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.slide-content h2 {
+	font-family: 'Playfair Display', serif;
+	color: #333;
+	font-size: 2rem;
+	margin-bottom: 10px;
+}
+
+.slide-content p {
+	color: #666;
+	margin-bottom: 20px;
+}
+
+.btn-slide {
+	text-decoration: none;
+	background: #c5a059; /* Золотой цвет */
+	color: white;
+	padding: 10px 20px;
+	border-radius: 30px;
+	font-weight: bold;
+	transition: 0.3s;
+}
+
+.btn-slide:hover {
+	background: #1a1a1a;
+}
+
+/* Кнопки-стрелки */
+.arrow-btn {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: white;
+	border: none;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%; /* Круглая форма */
+	cursor: pointer;
+	z-index: 10;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+	font-size: 1.2rem;
+	color: #c5a059;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: 0.3s;
+}
+
+.arrow-btn:hover {
+	background-color: #c5a059;
+	color: white;
+	transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+	left: 20px;
+}
+.next-btn {
+	right: 20px;
+}
+
+/* Адаптивность для телефонов */
+@media (max-width: 768px) {
+	.slide {
+		height: 300px;
+	}
+	.slide-content {
+		left: 20px;
+		right: 20px;
+		bottom: 20px;
+		top: auto; /* Текст снизу */
+		transform: none;
+		max-width: none;
+		text-align: center;
+	}
+	.arrow-btn {
+		width: 40px;
+		height: 40px;
+	}
+}
+
+/* Общие настройки шрифта */
+body {
+	font-family:
+		'Helvetica Neue', Arial, sans-serif; /* Простой шрифт без засечек */
+	margin: 0;
+	padding: 0;
+	background-color: #fff;
+}
+
+.categories-section {
+	max-width: 1200px;
+	margin: auto; /* Отступ сверху и снизу */
+	padding: 0 20px;
+	text-align: center;
+}
+
+/* Заголовок "категории" */
+.section-title {
+	font-size: 24px;
+	font-weight: normal;
+	margin-bottom: 30px;
+	color: #000;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+/* Сетка из 4-х элементов */
+.categories-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 20px; /* Расстояние между картинками */
+}
+
+/* Сама карточка */
+.category-item {
+	position: relative; /* Чтобы позиционировать текст внутри */
+	display: block;
+	height: 500px; /* Фиксированная высота как на скрине */
+	width: 100%;
+	overflow: hidden;
+	text-decoration: none;
+}
+
+/* Картинка внутри карточки */
+.category-item img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /* Картинка заполняет блок, не искажаясь */
+	display: block;
+	transition: transform 0.3s ease; /* Плавное увеличение при наведении */
+}
+
+/* Эффект при наведении (по желанию, можно убрать) */
+.category-item:hover img {
+	transform: scale(1.05);
+}
+
+/* Текст внизу (белый) */
+.category-name {
+	position: absolute;
+	bottom: 20px; /* Отступ снизу */
+	left: 0;
+	width: 100%;
+	text-align: center;
+	color: white;
+	font-size: 18px;
+	font-weight: 400;
+	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Легкая тень, чтобы текст читался на светлом */
+	z-index: 2;
+}
+
+/* Адаптив для мобильных (на телефоне станут по 2 в ряд) */
+@media (max-width: 768px) {
+	.categories-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.category-item {
+		height: 250px;
+	}
+}
+
+/* --- Секция "Смелый дизайн" --- */
+.feature-grid-section {
+	max-width: 1200px;
+	margin: 80px auto; /* Отступы сверху/снизу */
+	padding: 0 20px;
+}
+
+.feature-container {
+	display: flex;
+	gap: 20px; /* Расстояние между левой и правой частью */
+	height: 600px; /* Фиксированная высота всего блока */
+}
+
+/* --- Левая часть (Большая) --- */
+.feature-large {
+	flex: 2; /* Занимает 2/3 ширины (больше места) */
+	position: relative;
+	overflow: hidden; /* ВАЖНО: Обрезает картинку, когда она увеличивается */
+}
+
+/* Обертка для картинки, чтобы зум работал корректно */
+.zoom-wrapper {
+	width: 100%;
+	height: 100%;
+}
+
+.zoom-wrapper img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /* Картинка заполняет блок */
+
+	/* Магия плавности: меняем размер за 1.5 секунды */
+	transition: transform 4.5s ease-out;
+}
+
+/* Эффект при наведении на ВЕСЬ блок feature-large */
+.feature-large:hover .zoom-wrapper img {
+	transform: scale(1.1); /* Увеличиваем на 10% */
+}
+
+/* Текст поверх картинки */
+.feature-large .feature-text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%); /* Центрируем */
+	width: 80%;
+	text-align: center;
+	pointer-events: none; /* Чтобы мышка "сквозь" текст наводилась на фото */
+	z-index: 2;
+}
+
+.feature-large h3 {
+	color: white;
+	font-family: 'Playfair Display', serif; /* Твой красивый шрифт */
+	font-size: 1.8rem;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	line-height: 1.4;
+	text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Правая часть (Колонка) --- */
+.feature-small-col {
+	flex: 1; /* Занимает 1/3 ширины */
+	display: flex;
+	flex-direction: column;
+	gap: 20px; /* Расстояние между верхним и нижним товаром */
+}
+
+.feature-product {
+	flex: 1; /* Растягивается на половину высоты колонки */
+	background-color: #f9f9f9; /* Светло-серый фон как на скрине */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	transition: background 0.3s;
+}
+
+.feature-product img {
+	width: 120px;
+	height: 120px;
+	object-fit: contain;
+	margin-bottom: 20px;
+	mix-blend-mode: multiply; /* Убирает белый фон у картинок (если есть) */
+}
+
+.shop-link {
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+	font-size: 0.9rem;
+	color: #333;
+	text-decoration: none;
+	border-bottom: 1px solid #ccc; /* Подчеркивание */
+	padding-bottom: 3px;
+	transition: 0.3s;
+}
+
+.shop-link:hover {
+	color: #b89146; /* Золотой цвет при наведении */
+	border-color: #b89146;
+}
+
+/* --- Адаптив для телефонов --- */
+@media (max-width: 900px) {
+	.feature-container {
+		flex-direction: column; /* Блоки встают друг под друга */
+		height: auto;
+	}
+	.feature-large {
+		height: 400px; /* Высота картинки на телефоне */
+	}
+	.feature-small-col {
+		flex-direction: row; /* Товары встают в ряд под фото */
+		height: 250px;
+	}
+}
+
+/* --- Блок Split (Фото + Текст) --- */
+.split-section {
+	display: flex; /* Включаем режим колонок */
+	width: 100%;
+	min-height: 500px; /* Высота блока */
+	background-color: #d3d3d3; /* Белый фон для текста */
+	margin-bottom: 80px; /* Отступ снизу от следующего блока */
+	margin-top: 80px; /* Отступ сверху от предыдущего блока */
+}
+
+/* Настройки для левой части (Картинки) */
+.split-image {
+	flex: 1; /* Занимает 50% ширины */
+	position: relative;
+	overflow: hidden;
+}
+
+.split-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /* Картинка заполняет блок без искажений */
+	display: block;
+}
+
+/* Настройки для правой части (Текста) */
+.split-content {
+	flex: 1; /* Занимает 50% ширины */
+	display: flex;
+	flex-direction: column; /* Элементы друг под другом */
+	justify-content: center; /* Центрирование по вертикали */
+	padding: 0 80px; /* Большие отступы слева и справа */
+	text-align: left; /* Текст по левому краю */
+}
+
+/* Типографика этого блока */
+.split-content .subtitle {
+	font-family: 'Lato', sans-serif; /* Или твой основной шрифт */
+	font-size: 0.8rem;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: #666; /* Серый цвет */
+	margin-bottom: 15px;
+	display: block;
+}
+
+.split-content h2 {
+	font-family: 'Playfair Display', serif; /* Красивый шрифт с засечками */
+	font-size: 2.5rem;
+	font-weight: normal; /* Не жирный, как на фото */
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	margin-bottom: 25px;
+	color: #000;
+}
+
+.split-content p {
+	font-family: 'Lato', sans-serif;
+	font-size: 0.95rem;
+	line-height: 1.8; /* Межстрочный интервал для читаемости */
+	color: #333;
+	margin-bottom: 40px;
+	max-width: 500px; /* Ограничиваем ширину текста, чтобы не был слишком длинным */
+}
+
+/* Черная кнопка */
+.btn-black {
+	display: inline-block;
+	background-color: #000;
+	color: #fff;
+	padding: 15px 35px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 0.8rem;
+	letter-spacing: 2px;
+	border: 1px solid #000;
+	transition: all 0.3s ease;
+	align-self: flex-start; /* Прижимает кнопку влево, не растягивая */
+}
+
+.btn-black:hover {
+	background-color: transparent;
+	color: #000;
+}
+
+/* --- Адаптив для телефонов --- */
+@media (max-width: 900px) {
+	.split-section {
+		flex-direction: column; /* Картинка сверху, текст снизу */
+		height: auto;
+	}
+
+	.split-image {
+		height: 400px; /* Высота картинки на телефоне */
+	}
+
+	.split-content {
+		padding: 50px 20px; /* Уменьшаем отступы */
+		align-items: center; /* Центрируем всё по центру */
+		text-align: center;
+	}
+
+	.btn-black {
+		align-self: center; /* Кнопка по центру */
+	}
+}
+
+.lookbook-section {
+	position: relative;
+	max-width: 1200px;
+	margin: 80px auto;
+	overflow: hidden;
+}
+
+.lookbook-container {
+	position: relative;
+	width: 100%;
+}
+
+.lookbook-bg {
+	width: 100%;
+	display: block;
+}
+
+/* Скрываем чекбокс */
+.hotspot-input {
+	display: none;
+}
+
+/* Обертка точки */
+.hotspot-wrapper {
+	position: absolute;
+	z-index: 10;
+}
+
+/* Белый кружок */
+.hotspot-dot {
+	display: block;
+	width: 20px;
+	height: 20px;
+	background: #fff;
+	border-radius: 50%;
+	cursor: pointer;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	transition: transform 0.3s ease;
+	position: relative;
+}
+
+/* Анимация пульсации вокруг кружка */
+.hotspot-dot::after {
+	content: '';
+	position: absolute;
+	top: -10px;
+	left: -10px;
+	right: -10px;
+	bottom: -10px;
+	border: 2px solid #fff;
+	border-radius: 50%;
+	animation: hotspot-pulse 2s infinite;
+}
+
+@keyframes hotspot-pulse {
+	0% {
+		transform: scale(0.5);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1.5);
+		opacity: 0;
+	}
+}
+
+/* Карточка товара (по умолчанию скрыта) */
+.hotspot-card {
+	position: absolute;
+	left: 40px; /* Показывается справа от точки */
+	top: -50px;
+	width: 220px;
+	background: #fff;
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+	opacity: 0;
+	visibility: hidden;
+	transform: translateX(20px);
+	transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+	z-index: 20;
+}
+
+.hotspot-card img {
+	width: 70px;
+	height: 70px;
+	object-fit: cover;
+}
+
+.hotspot-info h4 {
+	font-size: 0.85rem;
+	margin-bottom: 5px;
+	font-family: var(--font-serif);
+}
+
+.hotspot-info p {
+	font-size: 0.8rem;
+	color: var(--primary-gold);
+	font-weight: bold;
+}
+
+.hotspot-info a {
+	font-size: 0.7rem;
+	text-transform: uppercase;
+	text-decoration: underline;
+	margin-top: 5px;
+	display: block;
+}
+
+/* МАГИЯ: когда чекбокс нажат, показываем карточку */
+.hotspot-input:checked ~ .hotspot-card {
+	opacity: 1;
+	visibility: visible;
+	transform: translateX(0);
+}
+
+/* Поворачиваем точку при нажатии */
+.hotspot-input:checked + .hotspot-dot {
+	transform: scale(0.8) rotate(45deg);
+	background: var(--primary-gold);
+}
+
+.lookbook-wrapper {
+	display: flex; /* Делим на 2 колонки */
+	gap: 50px;
+	align-items: center;
+	padding: 80px 0;
+}
+
+.lookbook-media {
+	flex: 1.2;
+	position: relative;
+	overflow: hidden;
+}
+
+.lookbook-media img {
+	width: 100%;
+	height: 600px;
+	object-fit: cover;
+}
+
+/* Стили для точек (белых кружков) */
+.dot {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	background: #fff;
+	border-radius: 50%;
+	cursor: pointer;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+	z-index: 5;
+	transition: transform 0.3s;
+}
+
+.dot:hover {
+	transform: scale(1.2);
+}
+
+/* Прячем радиокнопки */
+.lookbook-input {
+	display: none;
+}
+
+/* ПРАВАЯ ПАНЕЛЬ */
+.lookbook-details {
+	flex: 0.8;
+	position: relative;
+	height: 300px; /* Фиксированная высота для стабильности контента */
+}
+
+/* Скрываем все блоки информации по умолчанию */
+.product-info-block {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(20px);
+	transition: all 0.5s ease;
+}
+
+/* МАГИЯ ПЕРЕКЛЮЧЕНИЯ */
+/* Если нажата первая кнопка — показываем блок .info1 */
+#point1:checked ~ .lookbook-media + .lookbook-details .info1,
+#point2:checked ~ .lookbook-media + .lookbook-details .info2 {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+
+/* Визуальный эффект для активной точки */
+#point1:checked + label[for='point1'],
+#point2:checked + label[for='point2'] {
+	background: var(--primary-gold);
+	border: 2px solid #fff;
+}
+
+/* Стилизация текста в правом блоке */
+.product-info-block .category {
+	text-transform: uppercase;
+	font-size: 0.8rem;
+	letter-spacing: 2px;
+	color: var(--text-gray);
+	display: block;
+	margin-bottom: 10px;
+}
+
+.product-info-block h2 {
+	font-family: var(--font-serif);
+	font-size: 2.5rem;
+	margin-bottom: 15px;
+}
+
+.product-info-block .price {
+	font-size: 1.5rem;
+	color: var(--primary-gold);
+	margin-bottom: 20px;
+}
+
+.btn-buy {
+	display: inline-block;
+	padding: 12px 40px;
+	background: #000;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 0.8rem;
+	margin-top: 20px;
+}
+
+.lookbook-section {
+	position: relative;
+	max-width: 1200px;
+	margin: 80px auto;
+	overflow: hidden;
+}
+
+.lookbook-container {
+	position: relative;
+	width: 80%;
+}
+
+.lookbook-bg {
+	width: 100%;
+	display: block;
+}
+
+/* --- Секция Бренды --- */
+.brands-section {
+	padding: 60px 20px;
+	background-color: #fff;
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+/* Заголовок как на скриншоте */
+.brands-section .section-title {
+	font-family:
+		'Helvetica Neue', Arial, sans-serif; /* Или твой основной шрифт */
+	font-size: 24px;
+	color: #333;
+	margin-bottom: 40px;
+	font-weight: normal;
+}
+
+.brands-container {
+	max-width: 1000px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 30px; /* Расстояние между рядами (верхним и нижним) */
+}
+
+/* Ряд с логотипами */
+.brands-row {
+	display: flex;
+	justify-content: center; /* Центрируем логотипы в ряду */
+	align-items: center;
+	gap: 60px; /* Расстояние между логотипами сбоку */
+	flex-wrap: wrap; /* Чтобы на телефоне они переносились */
+}
+
+/* Отдельный логотип */
+.brand-item {
+	width: 180px; /* Ширина места под логотип */
+	height: 80px; /* Высота места под логотип */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: transform 0.3s ease;
+}
+
+.brand-item img {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain; /* Логотип вписывается полностью */
+
+	/* Эффект черно-белого (дорогой стиль) */
+	filter: grayscale(100%);
+	opacity: 0.7;
+	transition: all 0.3s ease;
+}
+
+/* При наведении - логотип становится цветным и немного увеличивается */
+.brand-item:hover img {
+	filter: grayscale(0%);
+	opacity: 1;
+}
+.brand-item:hover {
+	transform: scale(1.05);
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 768px) {
+	.brands-row {
+		gap: 20px;
+	}
+	.brand-item {
+		width: 120px;
+		height: 60px;
+	}
+}
+
+/* Контейнер всей секции */
+.video-parallax-section {
+	position: relative;
+	height: 150vh; /* Увеличиваем высоту секции, чтобы было место для прокрутки текста */
+	margin-bottom: 100px;
+}
+
+/* Обертка для видео: заставляет его замереть, пока мы скроллим */
+.video-sticky-wrapper {
+	position: sticky;
+	top: 0;
+	width: 100%;
+	height: 120vh; /* Видео всегда на весь экран */
+	overflow: hidden;
+	z-index: 1;
+}
+
+.bg-video {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* Слой с текстом, который проплывает мимо */
+.video-overlay-content {
+	position: relative;
+	z-index: 2; /* Текст выше видео */
+	height: 100%; /* Растягиваем на все 150vh */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.parallax-text-box {
+	text-align: center;
+	color: white;
+	background: rgba(0, 0, 0, 0.3); /* Полупрозрачный фон для читаемости */
+	padding: 40px 60px;
+	backdrop-filter: blur(5px); /* Модное размытие заднего фона */
+	border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.parallax-text-box h2 {
+	font-family: 'Playfair Display', serif;
+	font-size: 3.5rem;
+	text-transform: uppercase;
+	margin: 10px 0;
+}
+
+.parallax-text-box .subtitle {
+	font-size: 0.9rem;
+	letter-spacing: 4px;
+	text-transform: uppercase;
+}
+
+/* Контент внутри видео-блока */
+.video-content {
+	text-align: center;
+	color: #fff;
+	padding: 20px;
+}
+
+.video-content h2 {
+	font-family: 'Playfair Display', serif;
+	font-size: 3rem;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	margin-bottom: 10px;
+}
+
+.video-content p {
+	font-size: 1.1rem;
+	letter-spacing: 2px;
+	opacity: 0.9;
+}
+
+/* Адаптив для телефонов */
+@media (max-width: 768px) {
+	.video-section {
+		height: 100vh; /* На мобильных делаем чуть ниже */
+	}
+	.video-content h2 {
+		font-size: 1.8rem;
+	}
+}
+
+/* Анимация появления */
+.fade-in {
+	animation: fadeInUp 1.5s ease-out;
+}
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* --- 2. News Section --- */
+.news-section {
+	padding: 80px 20px;
+	display: grid;
+	grid-template-columns: 1fr 2fr; /* Левая часть уже, правая шире */
+	gap: 30px;
+	align-items: center;
+}
+
+.news-banner {
+	background-color: #f0f4f8; /* Голубой оттенок как на скрине */
+	padding: 40px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.news-banner h2 {
+	font-family: var(--font-serif);
+	margin-bottom: 15px;
+}
+
+.news-grid {
+	display: flex;
+	gap: 15px;
+}
+
+.news-item img {
+	width: 100%;
+	height: 250px;
+	transition: transform 0.5s;
+}
+.news-item {
+	overflow: hidden;
+}
+.news-item:hover img {
+	transform: scale(1.1);
+}
+
+/* --- 3. Intro Section --- */
+.intro-section {
+	padding: 60px 20px;
+	max-width: 800px;
+}
+.intro-section h2 {
+	font-family: var(--font-serif);
+	margin-bottom: 20px;
+	font-size: 2.5rem;
+}
+
+/* --- 4. Video Section --- */
+.video-section {
+	position: relative;
+	height: 400px;
+	overflow: hidden;
+	margin-bottom: 60px;
+}
+
+.video-bg {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.video-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.4);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	cursor: pointer;
+}
+
+.play-button {
+	font-size: 3rem;
+	margin-bottom: 20px;
+	transition: transform 0.3s;
+}
+.video-section:hover .play-button {
+	transform: scale(1.2);
+}
+
+/* --- 5. Carousel (Slider) --- */
+.carousel-section {
+	padding: 50px 20px;
+	margin-bottom: 60px;
+}
+.section-header h2 {
+	font-family: var(--font-serif);
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.scrolling-wrapper {
+	display: flex;
+	gap: 30px;
+	overflow-x: auto; /* Включает скролл */
+	padding-bottom: 20px;
+	scroll-behavior: smooth;
+	/* Скрываем полосу прокрутки для красоты */
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+.scrolling-wrapper::-webkit-scrollbar {
+	display: none;
+}
+
+.card {
+	min-width: 250px;
+	text-align: center;
+	transition: transform 0.3s;
+}
+
+.card:hover {
+	transform: translateY(-5px);
+}
+.card img {
+	width: 100%;
+	height: 300px;
+	margin-bottom: 15px;
+}
+.card h4 {
+	font-family: var(--font-serif);
+	margin-bottom: 5px;
+}
+.card p {
+	color: var(--primary-gold);
+	font-weight: bold;
+}
+
+/*  */
+
+.location-section {
+	padding: 80px 0;
+	background-color: #fff;
+}
+
+.location-container {
+	display: flex;
+	align-items: center;
+	gap: 60px;
+}
+
+/* Рамка, как на твоем скрине */
+.location-frame {
+	flex: 1;
+	border: 1px solid #e5e5e5; /* Светлая тонкая рамка */
+	padding: 20px; /* Отступ от рамки до карты */
+	background-color: #f9f9f9;
+	height: 450px; /* Высота как у блока с кольцом */
+}
+
+/* Контейнер для самой карты */
+.map-wrapper {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.map-wrapper iframe {
+	filter: grayscale(100%) invert(90%) contrast(90%); /* Делает карту стильной, черно-белой под твой дизайн */
+}
+
+.location-content {
+	flex: 1;
+}
+
+/* Стили заголовков берем из твоих переменных в main.css */
+.location-content h2 {
+	font-family: var(--font-serif);
+	font-size: 2.5rem;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 768px) {
+	.location-container {
+		flex-direction: column;
+	}
+	.location-frame {
+		width: 100%;
+		height: 300px;
+	}
+}
+
+/* --- 6. Categories Grid --- */
+.category-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-auto-rows: 250px;
+	gap: 15px;
+	margin-bottom: 80px;
+}
+
+.cat-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+	transition: 0.3s;
+}
+.cat-item:hover {
+	opacity: 0.9;
+}
+.cat-item h3 {
+	z-index: 2;
+	font-family: var(--font-serif);
+	font-size: 1.5rem;
+}
+.cat-item img {
+	position: absolute;
+	width: 50%;
+	bottom: -20px;
+	right: -20px;
+	opacity: 0.5;
+	transition: 0.5s;
+}
+.cat-item:hover img {
+	transform: scale(1.1) rotate(-10deg);
+}
+
+.large {
+	grid-row: span 2;
+} /* Большой блок */
+.wide {
+	grid-column: span 2;
+} /* Широкий блок */
+
+/* --- 7. Promo Section --- */
+.promo-block {
+	display: flex;
+	align-items: center;
+	gap: 50px;
+	margin-bottom: 80px;
+}
+.promo-content {
+	flex: 1;
+}
+.promo-image {
+	flex: 1;
+}
+.promo-content h3 {
+	font-family: var(--font-serif);
+	font-size: 2rem;
+	margin-bottom: 15px;
+}
+.promo-content p {
+	margin-bottom: 25px;
+	color: var(--text-gray);
+}
+
+/* --- 8. Blog Section --- */
+.blog-section {
+	margin-bottom: 100px;
+}
+.blog-section h2 {
+	text-align: center;
+	font-family: var(--font-serif);
+	margin-bottom: 40px;
+}
+.blog-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 30px;
+}
+.blog-post {
+	cursor: pointer;
+}
+.blog-img {
+	overflow: hidden;
+	margin-bottom: 15px;
+}
+.blog-img img {
+	transition: transform 0.5s;
+	width: 100%;
+	height: 250px;
+}
+.blog-post:hover img {
+	transform: scale(1.05);
+}
+.blog-post h4 {
+	font-family: var(--font-serif);
+	margin-bottom: 10px;
+	font-size: 1.2rem;
+}
+.blog-meta {
+	color: var(--text-gray);
+	margin-bottom: 12px;
+}
+.blog-link {
+	display: inline-block;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 0.75rem;
+	border-bottom: 1px solid currentColor;
+}
+
+/*  */
+
+/* --- Вертикальные отзывы --- */
+:root {
+	--gold: #c6a74e;
+	--serif: Georgia, serif;
+}
+
+.testimonials {
+	background: #fff;
+	display: flex;
+	justify-content: center;
+}
+.testimonials-wrapper,
+.testimonials-wrapper * {
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+.testimonials-wrapper {
+	width: 100%;
+	max-width: 100%;
+
+	display: flex;
+	gap: 20px;
+
+	overflow-x: auto;
+	scroll-behavior: smooth;
+	cursor: grab;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+.testimonials-wrapper:active {
+	cursor: grabbing;
+}
+
+/* 4 карточки сразу */
+.testimonial {
+	flex: 0 0 calc((100% - 60px) / 4);
+	/* 60px = 3 gap по 20px */
+
+	padding: 25px;
+	box-sizing: border-box;
+
+	border: 1px solid #ddd;
+	text-align: center;
+}
+
+.stars {
+	color: var(--gold);
+	margin-bottom: 15px;
+}
+
+.testimonial p {
+	font-family: var(--serif);
+	font-style: italic;
+	margin-bottom: 15px;
+}
+
+/* --- Секция О нас --- */
+.about-section {
+	padding: 100px 0;
+	background-color: #fff;
+}
+
+.about-container {
+	display: flex;
+	align-items: center; /* Выравнивание по центру высоты */
+	gap: 80px; /* Расстояние между фото и текстом */
+}
+
+.about-image {
+	flex: 1;
+	position: relative;
+}
+
+.about-image img {
+	width: 100%;
+	height: 600px; /* Высокая вертикальная картинка */
+	object-fit: cover;
+	box-shadow: 20px 20px 0px 0px #f4f4f4; /* Декоративная подложка */
+}
+
+.about-content {
+	flex: 1;
+}
+
+.about-subtitle {
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	font-size: 0.8rem;
+	color: var(--primary-gold); /* Твое золото из main.css */
+	margin-bottom: 15px;
+	display: block;
+}
+
+.about-content h2 {
+	font-family: var(--font-serif); /* Playfair Display */
+	font-size: 3rem;
+	margin-bottom: 20px;
+	line-height: 1.2;
+}
+
+.about-divider {
+	width: 60px;
+	height: 2px;
+	background-color: var(--primary-gold);
+	margin-bottom: 30px;
+}
+
+.about-content p {
+	font-size: 1.05rem;
+	line-height: 1.8;
+	color: var(--text-gray);
+	margin-bottom: 20px;
+}
+
+/* --- Адаптивность для отзывов --- */
+
+/* Планшеты */
+@media (max-width: 1024px) {
+	.testimonials-wrapper {
+		gap: 15px; /* уменьшаем расстояние между отзывами */
+	}
+	.testimonial {
+		flex: 0 0 calc((100% - 45px) / 3); /* 3 карточки на ряд */
+		padding: 20px;
+	}
+}
+
+/* Смартфоны */
+@media (max-width: 768px) {
+	.testimonials-wrapper {
+		gap: 10px;
+	}
+	.testimonial {
+		flex: 0 0 calc((100% - 30px) / 2); /* 2 карточки на ряд */
+		padding: 15px;
+	}
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 480px) {
+	.testimonials-wrapper {
+		gap: 8px;
+	}
+	.testimonial {
+		flex: 0 0 100%; /* по одной карточке на ряд */
+		padding: 10px;
+	}
+}
+
+/* Кнопка в стиле контура */
+.btn-outline {
+	display: inline-block;
+	padding: 12px 35px;
+	border: 1px solid #000;
+	color: #000;
+	text-transform: uppercase;
+	font-size: 0.8rem;
+	letter-spacing: 2px;
+	margin-top: 20px;
+	transition: all 0.3s;
+}
+
+.btn-outline:hover {
+	background-color: #000;
+	color: #fff;
+}
+
+/* Адаптив для мобильных устройств */
+@media (max-width: 992px) {
+	.about-container {
+		flex-direction: column; /* Картинка сверху, текст снизу */
+		gap: 50px;
+	}
+
+	.about-image img {
+		height: 400px;
+	}
+
+	.about-content {
+		text-align: center;
+	}
+
+	.about-divider {
+		margin: 0 auto 30px;
+	}
+}
+
+/* --- Секция Плюсы --- */
+.benefits-section {
+	background-color: var(
+		--brand-dark
+	); /* Нейтральный тон для ювелирной тематики */
+	padding: 80px 0;
+	color: #fff;
+	text-align: center;
+}
+
+.benefits-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr); /* 3 колонки в ряд */
+	gap: 40px;
+}
+
+.benefit-item {
+	padding: 20px;
+}
+
+.benefit-icon {
+	font-size: 2.5rem;
+	margin-bottom: 20px;
+	display: block;
+}
+
+.benefit-item h3 {
+	font-family: var(--font-serif); /* Используем твой шрифт заголовков */
+	text-transform: uppercase;
+	font-size: 1rem;
+	letter-spacing: 2px;
+	margin-bottom: 15px;
+	color: #f1d299; /* Светло-золотистый для контраста */
+}
+
+.benefit-item p {
+	font-family: var(--font-sans);
+	font-size: 0.9rem;
+	line-height: 1.6;
+	opacity: 0.9;
+	max-width: 300px;
+	margin: 0 auto;
+}
+
+/* Адаптивность: на телефонах блоки встают друг под друга */
+@media (max-width: 768px) {
+	.benefits-grid {
+		grid-template-columns: 1fr;
+		gap: 50px;
+	}
+}
+
+/* --- Финальный Футер --- */
+.main-footer {
+	background-color: var(--brand-dark-2);
+	color: #fff;
+	padding: 80px 0 40px;
+	font-family: var(--font-sans);
+}
+
+.footer-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 100px;
+	margin-bottom: 60px;
+}
+
+.footer-col h3 {
+	font-family: var(--font-serif);
+	text-transform: uppercase;
+	font-size: 0.9rem;
+	letter-spacing: 2px;
+	margin-bottom: 30px;
+}
+
+.footer-col ul {
+	list-style: none;
+}
+
+.footer-col ul li {
+	margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+	font-size: 0.9rem;
+	color: rgba(255, 255, 255, 0.8);
+	transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+	color: var(--primary-gold);
+	padding-left: 5px;
+}
+
+/* Соцсети */
+.footer-socials {
+	display: flex;
+	gap: 20px;
+	margin-top: 40px;
+}
+
+.footer-socials a {
+	font-size: 1.2rem;
+	opacity: 0.8;
+}
+
+/* Форма подписки */
+.newsletter-col p {
+	font-size: 0.9rem;
+	line-height: 1.6;
+	margin-bottom: 25px;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.subscribe-form {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	max-width: 400px;
+}
+
+.subscribe-form input {
+	background: transparent;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	padding: 12px;
+	color: #fff;
+	outline: none;
+}
+
+.btn-subscribe {
+	background: #fff;
+	color: #000;
+	border: none;
+	padding: 12px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.btn-subscribe:hover {
+	background: var(--primary-gold);
+	color: #fff;
+}
+
+/* Нижняя панель */
+.footer-bottom {
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	padding-top: 30px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+.copyright {
+	font-size: 0.75rem;
+	letter-spacing: 1px;
+	opacity: 0.6;
+}
+
+.payment-icons {
+	display: flex;
+	gap: 10px;
+}
+
+.pay-card {
+	font-size: 0.7rem;
+	background: rgba(255, 255, 255, 0.1);
+	padding: 4px 8px;
+	border-radius: 3px;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+	.footer-grid {
+		grid-template-columns: 1fr;
+		gap: 50px;
+	}
+	.footer-bottom {
+		flex-direction: column;
+		text-align: center;
+	}
+}
+
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+	background-color: rgba(253, 251, 251, 0.37);
+	backdrop-filter: blur(10px);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.709);
+	padding: 15px 0;
+}
+
+.header.header--light {
+	position: sticky;
+	background-color: #fff;
+	backdrop-filter: none;
+	border-bottom: 1px solid var(--brand-line);
+	box-shadow: none;
+}
+
+.header__container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logo {
+	font-size: 24px;
+	font-weight: 900;
+	color: var(--color-text-primary);
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+.logo--footer {
+	font-size: 36px;
+}
+
+.nav__list {
+	display: flex;
+	list-style: none;
+	gap: 30px;
+}
+
+.nav__link {
+	color: var(--color-text-secondary);
+	text-decoration: none;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 14px;
+	transition: color 0.3s ease;
+	position: relative;
+}
+
+.nav__link::after {
+	content: '';
+	position: absolute;
+	bottom: -5px;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: var(--color-accent);
+	transition: width 0.3s ease;
+}
+
+.nav__link:hover {
+	color: var(--color-accent);
+}
+
+.nav__link:hover::after {
+	width: 100%;
+}
+
+/* Мобильное меню */
+.burger-check {
+	display: none;
+}
+
+.burger {
+	display: none;
+}
+
+/* Планшеты и небольшие ноутбуки */
+@media (max-width: 1024px) {
+	.hero__title {
+		font-size: 48px;
+	}
+
+	.about__content {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.about__stats {
+		width: 100%;
+	}
+
+	.halls__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.footer-map-union {
+		flex-direction: column-reverse;
+		text-align: center;
+	}
+
+	.map-inner {
+		height: 300px;
+	}
+}
+
+/* Мобильные телефоны */
+@media (max-width: 768px) {
+	.header__container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.burger {
+		display: block;
+		width: 30px;
+		height: 20px;
+		position: relative;
+		z-index: 101;
+		cursor: pointer;
+	}
+
+	.burger span {
+		position: absolute;
+		width: 100%;
+		height: 2px;
+		background-color: #fff;
+		left: 0;
+		transition: 0.3s ease;
+	}
+
+	.burger span:nth-child(1) {
+		top: 0;
+	}
+
+	.burger span:nth-child(2) {
+		top: 9px;
+	}
+
+	.burger span:nth-child(3) {
+		top: 18px;
+	}
+
+	.nav {
+		display: flex;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		height: auto;
+		padding: 20px 0;
+		background: rgba(220, 213, 213, 0.616);
+		border-bottom: 2px solid #ffffff;
+		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+		z-index: 100;
+		backdrop-filter: blur(10px);
+		transform: translateY(-150%);
+		transition: transform 0.4s ease-in-out;
+		align-items: center;
+		justify-content: center;
+		pointer-events: none;
+	}
+
+	.burger-check:checked ~ .nav {
+		transform: translateY(0);
+		pointer-events: auto;
+	}
+
+	.nav__list {
+		flex-direction: column;
+		align-items: center;
+		gap: 30px;
+	}
+
+	.nav__link {
+		margin-right: 0;
+		font-size: 20px;
+	}
+
+	.burger-check:checked ~ .burger span:nth-child(1) {
+		transform: rotate(45deg);
+		top: 9px;
+		background-color: #dcd2d4;
+	}
+
+	.burger-check:checked ~ .burger span:nth-child(2) {
+		opacity: 0;
+	}
+
+	.burger-check:checked ~ .burger span:nth-child(3) {
+		transform: rotate(-45deg);
+		top: 9px;
+		background-color: #cac2c4;
+	}
+
+	.header__btn {
+		display: none;
+	}
+
+	.hero__title {
+		font-size: 36px;
+	}
+
+	.hero__subtitle {
+		font-size: 16px;
+	}
+
+	.section-title {
+		font-size: 28px;
+	}
+
+	.about__stats {
+		grid-template-columns: 1fr;
+	}
+
+	.tariffs__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.tariff-card--featured {
+		transform: scale(1);
+	}
+
+	.footer__container {
+		flex-direction: column;
+		gap: 40px;
+	}
+}
+
+/* --- Reference-style overrides (global) --- */
+.top-ticker {
+	background-color: #fff;
+	border-bottom: 1px solid #eee;
+	text-align: center;
+	padding: 10px 0;
+	font-size: 0.65rem;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: #222;
+}
+
+.hero-content {
+	text-align: center;
+}
+.hero-kicker {
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	font-size: 0.7rem;
+}
+.hero-content h1 {
+	font-size: 3.5rem;
+	letter-spacing: 2px;
+}
+.hero-content .btn {
+	background: #fff;
+	color: #111;
+	border: 1px solid #111;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 0.75rem;
+}
+.hero-content .btn:hover {
+	background: #111;
+	color: #fff;
+}
+
+.section-title {
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	font-size: 1.1rem;
+}
+.categories-section {
+	margin: 80px auto;
+}
+.categories-grid {
+	gap: 30px;
+}
+.category-name {
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 0.75rem;
+}
+
+.benefits-section {
+	background-color: #111;
+}
+.benefit-item h3 {
+	color: #d8c3a0;
+}
+.main-footer {
+	background-color: #0f0f0f;
+}
+.footer-col h3 {
+	color: #f1ede6;
+}
+.footer-col ul li a:hover {
+	color: #d8c3a0;
+}
+.btn-subscribe:hover {
+	background: #d8c3a0;
+	color: #111;
+}
+
+/* --- Стили для Бургер-меню --- */
+
+/* Скрываем чекбокс и кнопку бургера на больших экранах */
+.burger-checkbox,
+.burger-label {
+	display: none;
+}
+
+/* Адаптив для планшетов и телефонов (ширина меньше 992px) */
+@media (max-width: 992px) {
+	/* Настраиваем шапку, чтобы меню выпадало ровно из-под нее */
+	.header-inner {
+		position: relative;
+		display: flex;
+		justify-content: space-between; /* Распределяем лого, бургер и иконки */
+		align-items: center;
+		flex-wrap: wrap; /* Позволяет меню уйти на новую строку */
+	}
+
+	/* Рисуем кнопку бургера (3 полоски) */
+	.burger-label {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 30px;
+		height: 20px;
+		cursor: pointer;
+		z-index: 100; /* Кнопка всегда поверх меню */
+		margin-left: 20px; /* Отступ от логотипа */
+	}
+
+	/* Сами полоски бургера */
+	.burger-label span {
+		display: block;
+		height: 2px;
+		width: 100%;
+		background-color: #000; /* Цвет полосок */
+		transition: 0.3s ease; /* Плавная анимация */
+	}
+
+	/* Прячем обычное меню наверх */
+	.shop-nav {
+		position: absolute;
+		top: 100%; /* Выпадает сразу под шапкой */
+		left: 0;
+		width: 100%;
+		background-color: #fff;
+		flex-direction: column;
+		align-items: center;
+		padding: 20px 0;
+		gap: 20px;
+		box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+
+		/* Скрываем меню по умолчанию */
+		transform: translateY(-200%);
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.4s ease;
+		z-index: 90;
+	}
+
+	/* МАГИЯ: Когда чекбокс нажат, показываем меню */
+	.burger-checkbox:checked ~ .shop-nav {
+		transform: translateY(0);
+		opacity: 1;
+		visibility: visible;
+	}
+
+	/* Красивая анимация: Бургер превращается в крестик при нажатии */
+	.burger-checkbox:checked + .burger-label span:nth-child(1) {
+		transform: translateY(9px) rotate(45deg);
+	}
+	.burger-checkbox:checked + .burger-label span:nth-child(2) {
+		opacity: 0; /* Средняя полоска исчезает */
+	}
+	.burger-checkbox:checked + .burger-label span:nth-child(3) {
+		transform: translateY(-9px) rotate(-45deg);
+	}
+
+	/* Иконки WhatsApp можно сдвинуть левее или скрыть, если мешают */
+	.header-icons {
+		margin-left: auto; /* Прижимаем вправо */
+		margin-right: 20px;
+	}
+}
